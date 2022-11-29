@@ -210,13 +210,13 @@ let g:session_command_aliases = 1
 syntax on
 set ruler
 set number
-
+set nofixeol
 
 
 let no_buffers_menu=1
 let g:seoul256_background = 233
+colo seoul256
 
-silent! colorscheme star_wars
 hi! Normal ctermbg=NONE guibg=NONE
 hi! NonText ctermbg=NONE guibg=NONE
 
@@ -285,12 +285,13 @@ if exists("*fugitive#statusline")
 endif
 
 " vim-airline
-let g:airline_theme = 'powerlineish'
+let g:airline_theme = 'seoul256'
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#ale#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tagbar#enabled = 1
 let g:airline_skip_empty_sections = 1
+let g:airline#extensions#tabline#formatter = 'default'
 
 
 "*****************************************************************************
@@ -319,6 +320,7 @@ let g:NERDTreeWinSize = 50
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.db,*.sqlite
 nnoremap <silent> <F2> :NERDTreeFind<CR>
 nnoremap <silent> <F3> :NERDTreeToggle<CR>
+
 
 " grep.vim
 nnoremap <silent> <leader>f :Rgrep<CR>
@@ -419,6 +421,9 @@ noremap <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
 set wildmode=list:longest,list:full
 set wildignore+=*.o,*.obj,.git,*.rbc,*.pyc,__pycache__
 let $FZF_DEFAULT_COMMAND =  "find * -path '*/\.*' -prune -o -path 'node_modules/**' -prune -o -path 'target/**' -prune -o -path 'dist/**' -prune -o  -type f -print -o -type l -print 2> /dev/null"
+nnoremap <silent> <C-p> :Files<CR>
+nnoremap <silent> <C-g> :GFiles<CR>
+nnoremap <C-f> :Rg! 
 
 " The Silver Searcher
 if executable('ag')
@@ -470,6 +475,8 @@ nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_javascript_prettier_use_local_config = 1
+let g:ale_completion_enabled = 1
+let g:ale_completion_autoimport = 1
 
 " Tagbar
 nmap <silent> <F4> :TagbarToggle<CR>
@@ -503,7 +510,7 @@ noremap <leader>x :bn<CR>
 noremap <leader>w :bn<CR>
 
 "" Close buffer
-noremap <leader>c :bd<CR>
+nnoremap <leader>c :bp<cr>:bd #<cr>
 
 "" Clean search (highlight)
 nnoremap <silent> <leader><space> :noh<cr>
@@ -758,3 +765,8 @@ else
   let g:airline_symbols.readonly = ''
   let g:airline_symbols.linenr = ''
 endif
+
+set termguicolors
+
+let g:NERDSpaceDelims = 1
+let g:NERDTrimTrailingWhitespace = 1

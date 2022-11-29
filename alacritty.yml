@@ -22,21 +22,19 @@ scrolling:
 
 font:
   normal:
-    family:
-      Operator Mono Lig
+    family: Operator Mono Lig
     style: Book
-  
+
   bold:
-    family:
-      Operator Mono Lig
+    family: Operator Mono Lig
     style: Medium
-  
+
   italic:
     family: Operator Mono Lig
     style: Book Italic
-  
-  size: 14.0
-  
+
+  size: 18.0
+
   use_thin_strokes: true
 
   # Offset is the extra space around each character. offset.y can be thought of
