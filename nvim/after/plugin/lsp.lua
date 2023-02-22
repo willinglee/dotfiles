@@ -21,6 +21,14 @@ lsp.configure('lua_ls', {
   }
 })
 
+lsp.configure('tsserver', {
+  filetypes = { "typescript", "typescriptreact", "typescript.tsx" }
+})
+
+lsp.configure('eslint', {
+  filetypes = { "javascript", "javascriptreact" }
+})
+
 local cmp = require("cmp")
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
 local cmp_mappings = lsp.defaults.cmp_mappings({
