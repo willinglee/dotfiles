@@ -5,20 +5,20 @@ lsp.preset("recommended")
 lsp.ensure_installed({
   "tsserver",
   "eslint",
-  "sumneko_lua",
   "rust_analyzer",
   "pyright",
+  "lua_ls"
 })
 
 -- Fix Undefined global 'vim'
-lsp.configure("sumneko_lua", {
+lsp.configure('lua_ls', {
   settings = {
     Lua = {
       diagnostics = {
-        globals = { "vim" },
-      },
-    },
-  },
+        globals = { 'vim' }
+      }
+    }
+  }
 })
 
 local cmp = require("cmp")
@@ -29,9 +29,6 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
   ["<C-y>"] = cmp.mapping.confirm({ select = true }),
   ["<C-Space>"] = cmp.mapping.complete(),
 })
-
---Enable (broadcasting) snippet capability for completion
-local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 -- disable completion with tab
 -- this helps with copilot setup
