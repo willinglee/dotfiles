@@ -49,43 +49,10 @@ lsp.set_preferences({
     warn = "W",
     hint = "H",
     info = "I",
-  },
+  }
 })
 
 lsp.setup()
-
-require("lspconfig").cssls.setup({
-  capabilities = capabilities,
-  on_attach = function(client)
-    client.server_capabilities.document_formatting = false
-  end,
-})
-
-require("lspconfig").tsserver.setup({
-  capabilities = capabilities,
-  on_attach = function(client)
-    client.server_capabilities.document_formatting = false
-  end,
-  init_options = {
-    preferences = {
-      disableSuggestions = true,
-    },
-  },
-})
-
-require("lspconfig").html.setup({
-  capabilities = capabilities,
-  on_attach = function(client)
-    client.server_capabilities.document_formatting = false
-  end,
-})
-
-require("lspconfig").eslint.setup({
-  capabilities = capabilities,
-  on_attach = function(client)
-    client.server_capabilities.document_formatting = false
-  end,
-})
 
 vim.diagnostic.config({
   virtual_text = true,
