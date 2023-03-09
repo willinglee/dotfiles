@@ -1,4 +1,5 @@
 local lsp = require("lsp-zero")
+local lspconfig = require("lspconfig")
 
 lsp.preset("recommended")
 
@@ -7,7 +8,10 @@ lsp.ensure_installed({
   "eslint",
   "rust_analyzer",
   "pyright",
-  "lua_ls"
+  "lua_ls",
+  "tailwindcss",
+  "cssls",
+  "html"
 })
 
 -- Fix Undefined global 'vim'
@@ -21,11 +25,23 @@ lsp.configure('lua_ls', {
   }
 })
 
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
+
 lsp.configure('tsserver', {
+  capabilities = capabilities,
   filetypes = { "typescript", "typescriptreact", "typescript.tsx" }
 })
 
+lsp.configure('tailwindcss', {
+  capabilities = capabilities
+})
+
+lsp.configure('cssls', {
+  capabilities = capabilities
+})
+
 lsp.configure('eslint', {
+  capabilities = capabilities,
   filetypes = { "javascript", "javascriptreact" }
 })
 
