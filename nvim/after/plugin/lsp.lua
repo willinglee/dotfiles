@@ -29,7 +29,8 @@ local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 lsp.configure('tsserver', {
   capabilities = capabilities,
-  filetypes = { "typescript", "typescriptreact", "typescript.tsx" }
+  filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
+  root_dir = lspconfig.util.root_pattern("package.json")
 })
 
 lsp.configure('tailwindcss', {
