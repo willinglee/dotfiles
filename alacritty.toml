@@ -1,0 +1,33 @@
+live_config_reload = true
+
+[colors]
+draw_bold_text_with_bright_colors = true
+
+[font]
+size = 18.0
+
+[font.glyph_offset]
+x = 0
+y = 0
+
+[font.normal]
+family = "Inconsolata NF"
+
+[font.offset]
+x = 0
+y = 0
+
+[scrolling]
+history = 10000
+multiplier = 3
+
+[selection]
+save_to_clipboard = true
+
+[shell]
+args = ["--login"]
+program = "/bin/zsh"
+
+[window.dimensions]
+columns = 300
+lines = 80
